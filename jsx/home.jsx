@@ -4,13 +4,16 @@ import Episodes from './episodes';
 import episodes from '../content/episodes.json';
 import createUrl from '../lib/create-url';
 
+const NUM_EPISODES_PER_PAGE = 5;
+
 const App = React.createClass({
   getInitialState() {
     return {
+      currentEpisodes: episodes.slice(0, NUM_EPISODES_PER_PAGE),
       episodeList: episodes,
       startValue: 0,
-      listNum: 5,
-      numOnPage: 5,
+      listNum: NUM_EPISODES_PER_PAGE,
+      numOnPage: NUM_EPISODES_PER_PAGE,
       showPrev: false,
       showNext: true
     };
@@ -25,20 +28,32 @@ const App = React.createClass({
     this.setState({showNext: show});
   },
   previousList() {
-    if(this.state.startValue >= 0) {
-      this.setState({ startValue: this.state.startValue - this.state.numOnPage, listNum: this.state.listNum - this.state.numOnPage });
+    if(this.state.startValue >= 0 && this.state.listNum >= NUM_EPISODES_PER_PAGE) {
+      const prevStart = this.state.startValue - this.state.numOnPage;
+      const prevEnd = this.state.listNum - NUM_EPISODES_PER_PAGE;
+      this.setState({
+        currentEpisodes: episodes.slice(prevStart, prevEnd),
+        startValue: prevStart,
+        listNum: this.state.listNum - NUM_EPISODES_PER_PAGE
+      });
     }
 
     // show next button
     this.showNextButton(true);
 
     // hide previous button if its the first page in the list
-    if (this.state.startValue <= 5) {
+    if (this.state.startValue <= NUM_EPISODES_PER_PAGE) {
       this.showPrevButton(false);
     }
   },
   nextList() {
-    this.setState({ startValue: this.state.startValue + this.state.numOnPage, listNum: this.state.listNum + this.state.numOnPage });
+    const nextStart = this.state.startValue + this.state.numOnPage;
+    const nextEnd = nextStart + NUM_EPISODES_PER_PAGE;
+    this.setState({
+      currentEpisodes: episodes.slice(nextStart, nextEnd),
+      startValue: nextStart,
+      listNum: this.state.listNum + NUM_EPISODES_PER_PAGE
+    });
 
     // show previous button
     this.showPrevButton(true);
@@ -62,15 +77,12 @@ const App = React.createClass({
     return (
       <div>
         <ul>
-          {this.state.episodeList.map((ep, i) => {
+          {this.state.currentEpisodes.map((ep, i) => {
             const url = createUrl('/episodes/' + ep.title);
             i++;
-            if(i > this.state.startValue && i <= this.state.listNum) {
-              return (
-                <Episodes key={i} epNum={ep.episode} url={url} title={ep.title} date={ep.published} description={ep.description} />
-              );
-            }
-            return null;
+            return (
+              <Episodes key={i} epNum={ep.episode} url={url} title={ep.title} date={ep.published} description={ep.description} />
+            );
           })}
         </ul>
         <div className="paging container">
