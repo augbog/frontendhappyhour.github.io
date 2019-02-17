@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------
 
-  // REM Units with PX fallback
+// REM Units with PX fallback
 
 // ----------------------------------------------------------------------
 
- // example: @include rem("margin", 10, 5, 10, 5);
- // example: @include rem("font-size", 14);
+// example: @include rem("margin", 10, 5, 10, 5);
+// example: @include rem("font-size", 14);
 
 @mixin rem($property, $values...) {
   $n: length($values);
@@ -16,9 +16,12 @@
 
   @while $i <= $n {
     $itemVal: (nth($values, $i));
-    @if $itemVal != "auto"{
+    @if $itemVal != 'auto' {
       $pxlist: append($pxlist, $itemVal + px);
-      $remlist: append($remlist, ($itemVal / 10) + rem); // Use this if you've set HTML font size value to 62.5%
+      $remlist: append(
+        $remlist,
+        ($itemVal / 10) + rem
+      ); // Use this if you've set HTML font size value to 62.5%
     } @else {
       $pxlist: append($pxlist, auto);
       $remlist: append($remlist, auto);

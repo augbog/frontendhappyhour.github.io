@@ -5,14 +5,14 @@
 
 // ----------------------------------------------------------------------
 
-  // Alignment
+// Alignment
 
 // ----------------------------------------------------------------------
-@import "mixins/margin-auto";
+@import 'mixins/margin-auto';
 
 // ----------------------------------------------------------------------
 
-  // Animation
+// Animation
 
 // ----------------------------------------------------------------------
 // @import "mixins/animate-link";
@@ -26,16 +26,16 @@
 
 // ----------------------------------------------------------------------
 
-  // Functional
+// Functional
 
 // ----------------------------------------------------------------------
-@import "mixins/hide-text";
+@import 'mixins/hide-text';
 // @import "mixins/hover-focus";
 // @import "mixins/replace-text";
 
 // ----------------------------------------------------------------------
 
-  // Gradients
+// Gradients
 
 // ----------------------------------------------------------------------
 // @import "mixins/linear-gradient";
@@ -43,39 +43,39 @@
 
 // ----------------------------------------------------------------------
 
-  // Layout
+// Layout
 
 // ----------------------------------------------------------------------
-@import "mixins/background-cover";
+@import 'mixins/background-cover';
 // @import "mixins/box-model";
-@import "mixins/clearfix";
+@import 'mixins/clearfix';
 //@import "mixins/inline-block";
 
 // ----------------------------------------------------------------------
 
-  // Media Queries
+// Media Queries
 
 // ----------------------------------------------------------------------
-@import "mixins/max-breakpoint";
-@import "mixins/min-breakpoint";
-@import "mixins/retina";
+@import 'mixins/max-breakpoint';
+@import 'mixins/min-breakpoint';
+@import 'mixins/retina';
 
 // ----------------------------------------------------------------------
 
-  // Styles
+// Styles
 
 // ----------------------------------------------------------------------
-@import "mixins/box-shadow";
+@import 'mixins/box-shadow';
 // @import "mixins/inner-shadow";
 // @import "mixins/opacity";
 // @import "mixins/placeholder";
-@import "mixins/rounded-corners";
+@import 'mixins/rounded-corners';
 // @import "mixins/text-shadow";
 // @import "mixins/triangles";
 
 // ----------------------------------------------------------------------
 
-  // Values
+// Values
 
 // ----------------------------------------------------------------------
-@import "mixins/rem";
+@import 'mixins/rem';

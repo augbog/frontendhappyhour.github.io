@@ -6,19 +6,18 @@
 // SassySass v1.3.1
 // ------------------------------------------------------------
 
-.guests{
-
-  li{
+.guests {
+  li {
     display: inline-block;
     text-align: center;
     max-width: 145px;
   }
 
-  img{
+  img {
     @include roundedCorners(150);
     width: 75px;
 
-    @include min-breakpoint(940){
+    @include min-breakpoint(940) {
       width: 80%;
     }
   }

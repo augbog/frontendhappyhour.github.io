@@ -6,13 +6,13 @@
 // SassySass v1.3.1
 // ------------------------------------------------------------
 
-.panel{
+.panel {
   ul {
     //max-width: 800px;
     margin-top: 20px;
   }
 
-  li{
+  li {
     display: inline-block;
     text-align: center;
     margin-bottom: 50px;
@@ -20,25 +20,26 @@
     width: 180px;
   }
 
-  a{
+  a {
     text-decoration: none;
-    
-    &:hover, &:focus{
+
+    &:hover,
+    &:focus {
       opacity: 0.7;
       border: none;
     }
   }
 
-  img{
+  img {
     @include roundedCorners(150);
     width: 75px;
 
-    @include min-breakpoint(940){
+    @include min-breakpoint(940) {
       width: 80%;
     }
   }
 
-  span{
+  span {
     display: block;
   }
 }

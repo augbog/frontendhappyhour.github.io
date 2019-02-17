@@ -5,7 +5,7 @@ const isURL = require('../lib/is-url');
 
 // test URLs in strings.json to make sure they are valid URLs
 // URLs can be blank because sometimes guests do not pick something on the internet
-test('Test URLs', function (t) {
+test('Test URLs', function(t) {
   const invalidPicks = [];
   const invalidLinks = [];
   // loop through list of URLs

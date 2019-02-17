@@ -1,7 +1,7 @@
 // File Name: _feeds.scss
 // Description: Style links to rss and podcast feeds
 // Used by: style.scss, episode.scss
-// Dependencies: 
+// Dependencies:
 // Date created: 02/03/2016
 // SassySass v1.3.1
 // ------------------------------------------------------------
@@ -9,21 +9,22 @@
 .feeds {
   text-align: center;
 
-  @include min-breakpoint(480){
+  @include min-breakpoint(480) {
     float: right;
     margin: 0;
   }
-  
+
   li {
     display: inline-block;
-    
+
     img {
       width: 25px;
       height: 25px;
       // 15px to match with logo
       margin: 15px 10px;
 
-      &:hover, &:focus{
+      &:hover,
+      &:focus {
         opacity: 0.7;
       }
 

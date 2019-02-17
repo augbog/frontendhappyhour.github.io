@@ -31,7 +31,7 @@ function createDetails(num) {
       // add comma
       if (parseInt(link) + 1 !== links.length) {
         desc += ', ';
-      }else {
+      } else {
         desc += '\n';
       }
     }
@@ -47,7 +47,7 @@ function createDetails(num) {
       // check to see if they have a twitter
       if (guests[guest].twitter !== '') {
         desc += ' - @' + guests[guest].twitter + `\n`;
-      }else {
+      } else {
         desc += `\n`;
       }
     }
@@ -89,7 +89,7 @@ if (identifier !== undefined) {
       createDetails(ep);
     }
   }
-// if there wasn't an argument passed find the last episode details
+  // if there wasn't an argument passed find the last episode details
 } else {
   createDetails(0);
 }

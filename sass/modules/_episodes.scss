@@ -6,11 +6,11 @@
 // SassySass v1.3.1
 // ------------------------------------------------------------
 
-.episodes{
+.episodes {
   margin-top: 30px;
   margin-bottom: 30px;
 
-  .episode-number{
+  .episode-number {
     display: inline-block;
     font-size: 28px;
     background: $darkBlue;
@@ -22,18 +22,18 @@
     border-radius: 70px;
   }
 
-  p{
+  p {
     width: 100%;
     margin-left: 85px;
   }
 
-  h2{
+  h2 {
     font-size: 32px;
     text-transform: uppercase;
     margin-bottom: 30px;
   }
 
-  a{
+  a {
     color: $darkBlue;
     text-decoration: none;
     width: 100%;
@@ -41,18 +41,19 @@
     display: block;
     padding: 30px 0 20px;
 
-    &:hover, &:focus{
+    &:hover,
+    &:focus {
       background: $chalk;
     }
 
-    .container{
+    .container {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
     }
   }
 
-  .title{
+  .title {
     font-size: 36px;
     margin: 0 0 0 15px;
     width: calc(100% - 85px);
@@ -62,11 +63,12 @@
     font-style: italic;
   }
 
-  ul, ol{
-    li{
+  ul,
+  ol {
+    li {
       position: relative;
       border-bottom: 1px dotted $chalk;
-      &:last-child{
+      &:last-child {
         border-bottom: none;
       }
     }

@@ -13,38 +13,48 @@ import source from 'vinyl-source-stream';
 import merge from 'merge-stream';
 import log from 'fancy-log';
 
-gulp.task('sass', () => gulp.src('sass/**/*.scss')
+gulp.task('sass', () =>
+  gulp
+    .src('sass/**/*.scss')
     .pipe(sass())
     .pipe(minifyCSS())
     .pipe(gulp.dest('./public/css/'))
 );
 
-gulp.task('svgmin', () => gulp.src('public/img/**/*.svg')
+gulp.task('svgmin', () =>
+  gulp
+    .src('public/img/**/*.svg')
     .pipe(svgmin())
     .pipe(gulp.dest('./public/img/'))
 );
 
 // ESLint
-gulp.task('lint', () => gulp.src(['**/*.js', '!node_modules/**', '!public/js/**/*.js'])
+gulp.task('lint', () =>
+  gulp
+    .src(['**/*.js', '!node_modules/**', '!public/js/**/*.js'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failAfterError())
 );
 
 // JSON Lint
-gulp.task('jsonlint', () => gulp.src(['./content/*.json', './*.json'])
+gulp.task('jsonlint', () =>
+  gulp
+    .src(['./content/*.json', './*.json'])
     .pipe(jsonlint())
     .pipe(jsonlint.reporter(jshintStyle))
 );
 
 // nodeunit tests
-gulp.task('nodeunit', () => gulp.src('tests/**/*.js')
-    .pipe(nodeunit({
+gulp.task('nodeunit', () =>
+  gulp.src('tests/**/*.js').pipe(
+    nodeunit({
       reporter: 'junit',
       reporterOptions: {
-        output: 'test-output'
-      }
-    }))
+        output: 'test-output',
+      },
+    })
+  )
 );
 
 // build javascript bundles
@@ -56,7 +66,15 @@ gulp.task('javascript', done => {
     const fullFile = jsxPath + fileName + '.jsx';
     const bundler = browserify({
       extensions: ['.js', '.jsx'],
-      transform: [['babelify', { presets: ['react', 'es2015'], plugins: ['transform-class-properties'] }]]
+      transform: [
+        [
+          'babelify',
+          {
+            presets: ['react', 'es2015'],
+            plugins: ['transform-class-properties'],
+          }
+        ]
+      ]
     });
 
     bundler.add(fullFile);
@@ -73,19 +91,22 @@ gulp.task('javascript', done => {
     if (i === files.length) {
       done();
     }
-   });
+  });
 });
 
 gulp.task('compress', done => {
-  gulp.src('./public/js/*.js')
+  gulp
+    .src('./public/js/*.js')
     .pipe(uglify())
     .on('error', err => log.error(err))
-    .pipe(rename({
-       extname: '.min.js'
-     }))
+    .pipe(
+      rename({
+        extname: '.min.js',
+      })
+    )
     .pipe(gulp.dest('./public/js/min/'));
-    done();
-  });
+  done();
+});
 
 gulp.task('scripts', gulp.series(['lint', 'javascript', 'compress']));
 

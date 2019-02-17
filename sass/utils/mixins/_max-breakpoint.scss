@@ -1,11 +1,13 @@
 // ----------------------------------------------------------------------
 
-  // Media Query Breakpoints
+// Media Query Breakpoints
 
 // ----------------------------------------------------------------------
 
 // example @include max-breakpoint(640) { width:80%; }
 
 @mixin max-breakpoint($size) {
-  @media only screen and (max-width: $size + px) { @content; }
+  @media only screen and (max-width: $size + px) {
+    @content;
+  }
 }

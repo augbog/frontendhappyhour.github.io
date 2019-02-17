@@ -30,7 +30,7 @@ let mainOutput = '';
 
 let panel;
 episodes.reverse();
-for(let i = episodes.length - 1; i >= 0; i--) {
+for (let i = episodes.length - 1; i >= 0; i--) {
   const epTitle = episodes[i].title;
   panel = episodes[i].panel;
   const epDate = episodes[i].published;
@@ -54,19 +54,19 @@ for(let i = episodes.length - 1; i >= 0; i--) {
   episodeOutput += episodePage(epDate, id, epDesc);
 
   // if a guest exists add heading and guest info
-  if(guests.length !== 0) {
+  if (guests.length !== 0) {
     // add episode guests
     episodeOutput += episodeGuests(guests);
   }
 
   // if there are episode links available add them to the page with a links heading
-  if(links.length !== 0) {
+  if (links.length !== 0) {
     // add episode links
     episodeOutput += episodeLinks(links);
   }
 
   // if there are picks for the episode add picks section
-  if(picks.length !== 0) {
+  if (picks.length !== 0) {
     // add pick links
     episodeOutput += episodePicks(picks);
   }
@@ -75,7 +75,7 @@ for(let i = episodes.length - 1; i >= 0; i--) {
   episodeOutput += episodePanel(panelists, panel);
 
   // transcript
-  if(transcript === true) {
+  if (transcript === true) {
     const transcriptContent = require('./transcripts/' + episodeNum)();
     episodeOutput += '<div class="transcript"><h3>Episode transcript</h3>';
     episodeOutput += transcriptContent;

@@ -11,7 +11,7 @@ const expected = `<script>
                   </script>`;
 
 // test to make sure episode number adds pading '00'
-test('Test ga template', function (t) {
+test('Test ga template', function(t) {
   t.equal(ga('1235A'), expected, 'Google analytics template is correct');
 
   t.end();

@@ -13,28 +13,28 @@ class Related extends React.Component {
   componentDidMount() {
     const component = this;
     const episodeTitle = document.getElementById('heading').innerHTML;
-    fetch(episodes).then((response) => {
+    fetch(episodes).then(response => {
       const contentType = response.headers.get('content-type');
-      return response.json().then((json) => {
+      return response.json().then(json => {
         for (let episodes of json) {
           const title = episodes.title;
           const category = episodes.category;
-          if(episodeTitle !== title) {
-            obj.push({'title': title, 'category': category});
-          }else {
+          if (episodeTitle !== title) {
+            obj.push({ title: title, category: category });
+          } else {
             cat = category;
           }
         }
-        
+
         const shuffledObj = shuffle(obj);
 
         // find related items from title and category
         for (let ep of shuffledObj) {
-          if(ep.category === cat && relatedTitles.length <= 3) {
+          if (ep.category === cat && relatedTitles.length <= 3) {
             const epTitle = ep.title;
             const url = createUrl('/episodes/' + ep.title);
-            relatedTitles.push({'title': epTitle, 'url': url});
-          } 
+            relatedTitles.push({ title: epTitle, url: url });
+          }
         }
 
         component.setState({ related: relatedTitles });
@@ -44,12 +44,16 @@ class Related extends React.Component {
 
   render() {
     return (
-      <div className='related container'>
+      <div className="related container">
         <h2>Related episodes</h2>
         <ul>
           {relatedTitles.map(function(episode, i) {
             i++;
-            return <li key={i}><a href={episode.url}>{episode.title}</a></li>;
+            return (
+              <li key={i}>
+                <a href={episode.url}>{episode.title}</a>
+              </li>
+            );
           })}
         </ul>
       </div>

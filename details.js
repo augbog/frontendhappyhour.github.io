@@ -23,9 +23,9 @@ Object.keys(episodes).forEach(function(key) {
   const links = episodes[key].links;
   const panelists = episodes[key].panel;
   epNum++;
-  if(cat === 'soft') {
+  if (cat === 'soft') {
     soft++;
-  }else {
+  } else {
     tech++;
   }
   numGuests = numGuests + guests.length;
@@ -33,73 +33,73 @@ Object.keys(episodes).forEach(function(key) {
   linkNum = linkNum + links.length;
 
   Object.keys(panelists).forEach(function(key) {
-    if(panelists[key] === 'Ryan Burgess') {
+    if (panelists[key] === 'Ryan Burgess') {
       ryanb++;
-    }else if(panelists[key] === 'Ryan Anklam') {
+    } else if (panelists[key] === 'Ryan Anklam') {
       ryana++;
-    }else if(panelists[key] === 'Jem Young') {
+    } else if (panelists[key] === 'Jem Young') {
       jem++;
-    }else if(panelists[key] === 'Brian Holt') {
+    } else if (panelists[key] === 'Brian Holt') {
       brian++;
-    }else if(panelists[key] === 'Derrick Showers') {
+    } else if (panelists[key] === 'Derrick Showers') {
       derrick++;
-    }else if(panelists[key] === 'Augustus Yuan') {
+    } else if (panelists[key] === 'Augustus Yuan') {
       augustus++;
-    }else if(panelists[key] === 'Sarah Federman') {
+    } else if (panelists[key] === 'Sarah Federman') {
       sarah++;
-    }else if(panelists[key] === 'Mars Jullian') {
+    } else if (panelists[key] === 'Mars Jullian') {
       mars++;
-    }else if(panelists[key] === 'Stacy London') {
+    } else if (panelists[key] === 'Stacy London') {
       stacy++;
     }
   });
 });
 
 const details = {
-  'episodes': epNum,
-  'technical': tech,
-  'soft': soft,
-  'picks': pickNum,
-  'links': linkNum,
-  'guests': numGuests,
-  'panel': [
+  episodes: epNum,
+  technical: tech,
+  soft: soft,
+  picks: pickNum,
+  links: linkNum,
+  guests: numGuests,
+  panel: [
     {
-      'name': 'Ryan Burgess',
-      'episodes': ryanb
+      name: 'Ryan Burgess',
+      episodes: ryanb,
     },
     {
-      'name': 'Ryan Anklam',
-      'episodes': ryana
+      name: 'Ryan Anklam',
+      episodes: ryana,
     },
     {
-      'name': 'Jem Young',
-      'episodes': jem
+      name: 'Jem Young',
+      episodes: jem,
     },
     {
-      'name': 'Brian Holt',
-      'episodes': brian
+      name: 'Brian Holt',
+      episodes: brian,
     },
     {
-      'name': 'Derrick Showers',
-      'episodes': derrick
+      name: 'Derrick Showers',
+      episodes: derrick,
     },
     {
-      'name': 'Augustus Yuan',
-      'episodes': augustus
+      name: 'Augustus Yuan',
+      episodes: augustus,
     },
     {
-      'name': 'Sarah Federman',
-      'episodes': sarah
+      name: 'Sarah Federman',
+      episodes: sarah,
     },
     {
-      'name': 'Mars Jullian',
-      'episodes': mars
+      name: 'Mars Jullian',
+      episodes: mars,
     },
     {
-      'name': 'Stacy London',
-      'episodes': stacy
-    }
-  ]
+      name: 'Stacy London',
+      episodes: stacy,
+    },
+  ],
 };
 
 console.log(details);

@@ -5,7 +5,7 @@ const isURL = require('../lib/is-url');
 
 let invalidURLs = [];
 //test URLs in strings.json to make sure they are valid URLs
-test('Test URLs', function (t) {
+test('Test URLs', function(t) {
   // loop through list of URLs
   for (let key in strings.urls[0]) {
     const url = strings.urls[0][key];

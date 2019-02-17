@@ -5,8 +5,7 @@ import Episodes from './panel-episodes';
 class App extends React.Component {
   state = {};
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   render() {
     return (

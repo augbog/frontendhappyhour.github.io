@@ -14,26 +14,26 @@ const temp = [];
 Object.keys(panelists).forEach(function(key) {
   let name = panelists[key].name;
   // get all panelist names except Sarah Federman, Brian Holt, Derrick Showers and create emptpy picks object
-  if(name !== 'Sarah Federman' && name !== 'Brian Holt' && name !== 'Derrick Showers') {
+  if (name !== 'Sarah Federman' && name !== 'Brian Holt' && name !== 'Derrick Showers') {
     names.push(name);
-    picks.push({'title': '', 'url': '', 'from': name });
-    picks.push({'title': '', 'url': '', 'from': name });
+    picks.push({ title: '', url: '', from: name });
+    picks.push({ title: '', url: '', from: name });
   }
 });
 
 // build up place holder object for new episode
 const object = {
-  'episode': pad(epNum, 3),
-  'title': '',
-  'description': '',
-  'id': '',
-  'published': '',
-  'transcribed': false,
-  'category': '',
-  'panel': names,
-  'guests': guests,
-  'links': links,
-  'picks': picks
+  episode: pad(epNum, 3),
+  title: '',
+  description: '',
+  id: '',
+  published: '',
+  transcribed: false,
+  category: '',
+  panel: names,
+  guests: guests,
+  links: links,
+  picks: picks,
 };
 
 // add new object and combine with the existing episodes
@@ -44,10 +44,10 @@ Object.keys(episodes).forEach(function(key) {
 });
 
 //write new file
-jsonfile.writeFile('./content/episodes.json', temp, {spaces: 2}, function(err) {
-  if(err) {
+jsonfile.writeFile('./content/episodes.json', temp, { spaces: 2 }, function(err) {
+  if (err) {
     console.log(err);
-  }else {
+  } else {
     console.log(`Episodes updated with episode ${epNum}`);
   }
 });
